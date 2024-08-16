@@ -1,0 +1,17 @@
+
+.grid-con {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+.marleft{
+    margin-left: 8.5%;
+}
+
+
+.card-img-top {
+    height: 180px; /* Adjust height as needed */
+    object-fit: cover;
+  }
