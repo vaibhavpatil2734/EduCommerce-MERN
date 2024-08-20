@@ -19,9 +19,21 @@ export default function Register() {
     });
   };
 
-  const handleSubmit = (e)=>{
+  const handleSubmit = async(e)=>{
     e.preventDefault();
     console.log(user)
+    try {
+    const response =  fetch('http://localhost:5000/api/auth/login',{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+      },
+      body:JSON.stringify(user),
+    });
+    console.log(response);
+  } catch (error) {
+      console.log("login error",error);
+  }
   }
   return (
     <div className="grid-container">

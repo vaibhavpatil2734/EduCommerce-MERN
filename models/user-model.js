@@ -24,27 +24,27 @@ const userSchema = new mongoose.Schema({
 });
 
 // Password hashing before saving the user
-userSchema.pre('save', async function (next) {
-    const user = this;
+// userSchema.pre('save', async function (next) {
+//     const user = this;
 
-    if (!user.isModified("password")) {
-        return next();  // Exit if the password is not modified
-    }
+//     if (!user.isModified("password")) {
+//         return next();  // Exit if the password is not modified
+//     }
 
-    try {
-        const saltRounds = 10;
-        const salt = await bcrypt.genSalt(saltRounds);
-        const hash_password = await bcrypt.hash(user.password, salt);
-        user.password = hash_password;
-        next();  // Proceed to save the user
-    } catch (error) {
-        next(error);  // Pass the error to the next middleware or error handler
-    }
-});
+//     try {
+//         const saltRounds = 10;
+//         const salt = await bcrypt.genSalt(saltRounds);
+//         const hash_password = await bcrypt.hash(user.password, salt);
+//         user.password = hash_password;
+//         next();  // Proceed to save the user
+//     } catch (error) {
+//         next(error);  // Pass the error to the next middleware or error handler
+//     }
+// });
 
-userSchema.methods.comparePassword = async function(password){
-    return bcrypt.compare(password, this.password);
-}
+// userSchema.methods.comparePassword = async function(password){
+//     return bcrypt.compare(password, this.password);
+// }
 
 // JWT token generation method
 userSchema.methods.generateToken = async function() {
