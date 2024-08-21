@@ -4,7 +4,7 @@ import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 
 export default function Register() {
 
-  const [user, setUser] = useState({
+  const [contact, setContact] = useState({
     username: "",
     email: "",
     message:""
@@ -14,16 +14,29 @@ export default function Register() {
     let name = e.target.name;
     let value = e.target.value;
 
-    setUser({
-      ...user,
+    setContact({
+      ...contact,
       [name]: value,
     });
   };
 
-  const handleSubmit = (e)=>{
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(user)
+    console.log(contact);
+    try {
+      const response = await fetch('http://localhost:5000/api/form/contact', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(contact),
+      });
+      console.log(await response.json());
+    } catch (error) {
+      console.log("register", error);
+    }
   }
+
   return (
     <div className="grid-container">
       <div className="animation-container">
@@ -38,7 +51,7 @@ export default function Register() {
       <div className="form-container">
         <Container className="d-flex justify-content-center align-items-center vh-100">
           <Row className="w-100">
-            <Col xs={12} md={20} lg={20} className="mx-auto">
+            <Col xs={12} md={6} lg={6} className="mx-auto">
               <h2 className="mb-5">Contact Us</h2>
               <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formUsername" className="mb-3">
@@ -47,7 +60,7 @@ export default function Register() {
                     onChange={handleInput}
                     name="username"
                     type="text"
-                    value={user.username}
+                    value={contact.username}
                     placeholder="Enter username"
                   />
                 </Form.Group>
@@ -58,13 +71,21 @@ export default function Register() {
                     onChange={handleInput}
                     name="email"
                     type="email"
-                    value={user.email}
+                    value={contact.email}
                     placeholder="Enter email"
                   />
                 </Form.Group>
-                <Form.Group controlId="formPassword" className="mb-4">
+
+                <Form.Group controlId="formMessage" className="mb-4">
                   <Form.Label>Message</Form.Label>
-                  <textarea   onChange={handleInput} value={user.password} placeholder="Enter Message" name="message" rows="8" cols="30" ></textarea><br></br>
+                  <textarea
+                    onChange={handleInput}
+                    value={contact.message}
+                    placeholder="Enter Message"
+                    name="message"
+                    rows="8"
+                    cols="30"
+                  ></textarea>
                 </Form.Group>
 
                 <Button variant="primary" type="submit" className="w-100">
