@@ -54,7 +54,7 @@
   }
   
   .bouncing-ball:nth-child(6) {
-    left: 3%;
+    left: 50%;
     animation-delay: 1.3s;
   }
   

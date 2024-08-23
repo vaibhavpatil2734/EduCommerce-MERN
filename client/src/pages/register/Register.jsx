@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 import './register.css';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import BallAni from '../ball-ani/BallAni';
@@ -10,6 +11,8 @@ export default function Register() {
     phone: "",
     password: "",
   });
+
+  const navigate = useNavigate(); // Initialize navigate function
 
   const handleInput = (e) => {
     let name = e.target.name;
@@ -32,6 +35,14 @@ export default function Register() {
         },
         body: JSON.stringify(user),
       });
+
+      if (response.ok) {
+        alert("Registration Successfully Completed!!!")
+        navigate('/login');
+      } else {
+        console.error('Registration failed');
+      }
+
       console.log(response);
     } catch (error) {
       console.log("register", error);

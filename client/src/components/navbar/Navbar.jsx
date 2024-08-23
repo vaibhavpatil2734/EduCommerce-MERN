@@ -19,10 +19,13 @@ export default function Navbar() {
               <NavLink to="/register" className="nav-link">Register</NavLink>
               <NavLink to="/login" className="nav-link">Login</NavLink>
               <NavLink to="/contact" className="nav-link">Contact</NavLink>
-              {/* <NavLink to="/about" className="nav-link">About</NavLink> */}
-            </Nav>
-            <Nav className="ml-auto">  {/* Add ml-auto to align to the right */}
               <NavLink to="/about" className="nav-link">About</NavLink>
+            </Nav>
+            {/* <Nav className="ml-auto">  
+              <NavLink to="/about" className="nav-link">About</NavLink>
+            </Nav> */}
+            <Nav className='ml-auto'>
+              <h5></h5>
             </Nav>
           </BootstrapNavbar.Collapse>
         </Container>

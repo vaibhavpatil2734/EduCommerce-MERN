@@ -19,11 +19,9 @@ const register = async (req, res) => {
         const updateResult = await User.updateOne({ username: 'jayesh' }, { $set: { email: "jayeshjkdddddd@gmail.com" } });
         console.log('Update Result:', updateResult);
 
-
         if (userExist) {
-            console.log("user alerady exist");
+            console.log("User already exists");
             return res.status(400).json({ msg: "Email already exists" });
-            
         }
 
         // const hashedPassword = await bcrypt.hash(password, 10);
@@ -36,43 +34,37 @@ const register = async (req, res) => {
     }
 };
 
-
-//login page
-const login = async (req, res) => {
+// Login page
+const login = async (req, res, next) => {
     try {
         const { email, password } = req.body;
 
         const userExist = await User.findOne({ email });
 
         if (!userExist) {
-            console.log("login UnSuccess")
-            return res.status(400).json({ message: "Invalid email or password here" });
-            
+            console.log("Login unsuccessful");
+            return res.status(400).json({ message: "Invalid email or password" });
         }
-        console.log(userExist.password)
 
-        //const user =  await bcrypt.compare(password, userExist.password);
-        //const user =  userExist.comparePassword(password)
-        if (password == userExist.password) {
+        // Assuming password is not hashed for now; if it is, use bcrypt.compare()
+        if (password === userExist.password) {
+            const token = await userExist.generateToken();
             res.status(200).json({
                 msg: "Login successful",
-                token: await userExist.generateToken(),
+                token,
                 userId: userExist._id.toString(),
-                
+                username: userExist.username, // Include username in the response
             });
-            console.log("login success!!")
+            console.log("Login successful!");
         } else {
-            res.status(401).json({ message: "Invalid email or password here" });
-            console.log("login unSuccess")
+            res.status(401).json({ message: "Invalid email or password" });
+            console.log("Login unsuccessful");
         }
     } catch (error) {
         console.error(error);
-        //res.status(500).json({ message: "Internal server error" });
+        res.status(500).json({ message: "Internal server error" });
         next(error);
     }
 };
 
-
 module.exports = { home, register, login };
-
-

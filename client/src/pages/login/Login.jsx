@@ -2,17 +2,19 @@ import React, { useState } from 'react';
 import './login.css';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import BallAni from '../ball-ani/BallAni';
+import { useNavigate } from 'react-router-dom';
 
-export default function Register() {
-
+export default function Login() {
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
 
+  const navigate = useNavigate();
+
   const handleInput = (e) => {
-    let name = e.target.name;
-    let value = e.target.value;
+    const name = e.target.name;
+    const value = e.target.value;
 
     setUser({
       ...user,
@@ -20,32 +22,50 @@ export default function Register() {
     });
   };
 
-  const handleSubmit = async(e)=>{
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(user)
+    console.log("Form data:", user); // Log form data
+
     try {
-    const response =  fetch('http://localhost:5000/api/auth/login',{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json",
-      },
-      body:JSON.stringify(user),
-    });
-    console.log(response);
-  } catch (error) {
-      console.log("login error",error);
-  }
-  }
+      const response = await fetch('http://localhost:5000/api/auth/login', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+
+      const responseData = await response.json(); // Parse the JSON response
+      console.log("Full response data:", responseData); // Print the entire response data
+      
+      if (response.ok) {
+        if (responseData && responseData.username) {
+          alert(`Login Successful! Welcome, ${responseData.username}`); // Show an alert with the username
+        } else {
+          alert("Login Successful, but username not found in response"); // Fallback alert message
+        }
+
+        navigate('/'); // Redirect after showing alert
+      } else {
+        console.error('Login failed', responseData.message || responseData);
+        alert("Login failed. Please check your credentials.");
+      }
+    } catch (error) {
+      console.log("Login error", error);
+      alert("An error occurred during login. Please try again.");
+    }
+  };
+
   return (
     <div className="grid-container">
       <div className="animation-container">
-        <BallAni/>
+        <BallAni />
       </div>
       <div className="form-container mainbackground">
         <Container className="d-flex justify-content-center align-items-center vh-100 mainbackground">
           <Row className="w-100">
-            <Col xs={12} md={20} lg={20} className="mx-auto">
-              <h2 className="mb-5">Create an Account</h2>
+            <Col xs={12} md={10} lg={8} className="mx-auto">
+              <h2 className="mb-5">Login to Your Account</h2>
               <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formEmail" className="mb-3">
                   <Form.Label>Email address</Form.Label>
