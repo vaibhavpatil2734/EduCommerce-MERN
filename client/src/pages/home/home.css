@@ -1,17 +1,59 @@
-
-.grid-con {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-.marleft{
-    margin-left: 8.5%;
+body {
+  background-color: #2a3d52; /* Replace with your desired color */
 }
 
+.border-top {
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.border-bottom {
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+* {
+  color: white;
+}
+
+.maincolor {
+  background-color: aqua;
+}
+
+.type {
+  position: absolute;
+  left: 27%;
+  top: 15%;
+}
+
+.grid-con {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.marleft {
+  position: absolute;
+  top: 30%;
+  margin-left: 8.5%;
+}
 
 .card-img-top {
-    height: 180px; /* Adjust height as needed */
-    object-fit: cover;
-  }
+  height: 180px; /* Adjust height as needed */
+  object-fit: cover;
+}
+
+/* Hover effect for cards */
+.card-dark:hover {
+  transform: translateY(-10px); /* Move the card up slightly on hover */
+  transition: transform 0.3s ease; /* Smooth transition */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect */
+}
+
+/* Hover effect for buttons */
+.button-dark:hover {
+  background-color: #007bff; /* Change button color on hover */
+  color: white;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}

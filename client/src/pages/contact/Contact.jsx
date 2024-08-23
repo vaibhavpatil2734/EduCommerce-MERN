@@ -7,7 +7,7 @@ export default function Register() {
   const [contact, setContact] = useState({
     username: "",
     email: "",
-    message:""
+    message: ""
   });
 
   const handleInput = (e) => {
@@ -49,10 +49,10 @@ export default function Register() {
         </div>
       </div>
       <div className="form-container">
-        <Container className="d-flex justify-content-center align-items-center vh-100">
-          <Row className="w-100">
-            <Col xs={12} md={6} lg={6} className="mx-auto">
-              <h2 className="mb-5">Contact Us</h2>
+        <Container>
+          <Row className="form-row">
+            <Col xs={12}>
+              <h2 className="mb-4">Contact Us</h2>
               <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formUsername" className="mb-3">
                   <Form.Label>Username</Form.Label>
@@ -76,20 +76,21 @@ export default function Register() {
                   />
                 </Form.Group>
 
-                <Form.Group controlId="formMessage" className="mb-4">
+                <Form.Group controlId="formMessage" className="mb-3">
                   <Form.Label>Message</Form.Label>
                   <textarea
                     onChange={handleInput}
                     value={contact.message}
                     placeholder="Enter Message"
                     name="message"
-                    rows="8"
-                    cols="30"
+                    rows="7"
+                    cols="10"
+                    className="form-control"
                   ></textarea>
                 </Form.Group>
 
                 <Button variant="primary" type="submit" className="w-100">
-                  Proceed
+                  Send
                 </Button>
               </Form>
             </Col>

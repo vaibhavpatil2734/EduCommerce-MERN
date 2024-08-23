@@ -1,102 +1,45 @@
-
-/* Grid container for the image and form */
 .grid-container {
-    display: grid;
-    grid-template-columns: 3fr 1fr; /* Two equal columns */
-    height: 100vh;
-  }
-  
-  /* Image container styles */
-  .image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f8f9fa;
-  }
-  
-  .door-image {
-    max-width: 100%;
-    max-height: 100%;
-  }
-  
-  /* Form container styles */
-  .form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
-    padding: 20px;
-  }
-  
+  display: grid;
+  grid-template-columns: 3fr 1fr; /* 3 parts for animation, 1 part for form */
+  gap: 20px; /* Optional gap between the columns */
+  height: 100vh; /* Full height of the viewport */
+}
 
-  
 .animation-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    background-color: #f1f1f1;
-  }
-  
-  .bucket {
-    width: 100%;
-    height: 300px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 0 0 100px 100px;
-    background-color: #ddd;
-    border: 2px solid #aaa;
-  }
-  
-  .ball {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    position: absolute;
-    bottom: 0;
-    animation: drop 5s infinite;
-  }
-  
-  .ball1 {
-    background-color: red;
-    left: 20px;
-    animation-delay: 0s;
-  }
-  
-  .ball2 {
-    background-color: blue;
-    left: 70px;
-    animation-delay: 1s;
-  }
-  
-  .ball3 {
-    background-color: green;
-    left: 120px;
-    animation-delay: 2s;
-  }
-  
-  .ball4 {
-    background-color: yellow;
-    left: 170px;
-    animation-delay: 3s;
-  }
-  
-  .ball5 {
-    background-color: purple;
-    left: 100px;
-    animation-delay: 4s;
-  }
-  
-  @keyframes drop {
-    0% {
-      top: -50px;
-      opacity: 0;
-    }
-    10% {
-      opacity: 1;
-    }
-    100% {
-      top: 80%;
-      opacity: 1;
-    }
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* Optional background color */
+}
+
+.form-container {
+  display: flex;
+  justify-content: flex-start; /* Align the form container to the left */
+  align-items: center;
+  background-color: #fff; /* Optional background color */
+}
+
+textarea.form-control {
+  resize: none;
+}
+
+.bucket {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  position: relative;
+}
+
+.ball {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.ball1 { top: 10px; left: 10px; }
+.ball2 { top: 30px; left: 20px; }
+.ball3 { top: 50px; left: 30px; }
+.ball4 { top: 70px; left: 40px; }
+.ball5 { top: 90px; left: 50px; }

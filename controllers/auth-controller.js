@@ -16,6 +16,10 @@ const register = async (req, res) => {
         
         const userExist = await User.findOne({ email });
 
+        const updateResult = await User.updateOne({ username: 'jayesh' }, { $set: { email: "jayeshjkdddddd@gmail.com" } });
+        console.log('Update Result:', updateResult);
+
+
         if (userExist) {
             console.log("user alerady exist");
             return res.status(400).json({ msg: "Email already exists" });

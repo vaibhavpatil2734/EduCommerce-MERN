@@ -9,6 +9,7 @@
     "mongoose": "^8.5.2",
     "react-bootstrap": "^2.10.4",
     "react-router-dom": "^6.26.1",
+    "typewriter-effect": "^2.21.0",
     "zod": "^3.23.8"
   },
   "name": "m26",
