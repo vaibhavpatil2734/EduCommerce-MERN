@@ -1,7 +1,9 @@
 body {
   background-color: #2a3d52; /* Replace with your desired color */
 }
-
+.align{
+  text-align: center;
+}
 .border-top {
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
@@ -56,4 +58,6 @@ body {
   background-color: #007bff; /* Change button color on hover */
   color: white;
   transition: background-color 0.3s ease; /* Smooth transition */
+  box-shadow: 20px;
+
 }

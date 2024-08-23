@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './contact.css';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import BallAni from '../ball-ani/BallAni';
 
 export default function Register() {
 
@@ -40,16 +41,10 @@ export default function Register() {
   return (
     <div className="grid-container">
       <div className="animation-container">
-        <div className="bucket">
-          <div className="ball ball1"></div>
-          <div className="ball ball2"></div>
-          <div className="ball ball3"></div>
-          <div className="ball ball4"></div>
-          <div className="ball ball5"></div>
-        </div>
+        <BallAni/>
       </div>
-      <div className="form-container">
-        <Container>
+      <div className="form-container mainbackground">
+        <Container className="d-flex justify-content-center align-items-center vh-100 mainbackground p-5">
           <Row className="form-row">
             <Col xs={12}>
               <h2 className="mb-4">Contact Us</h2>

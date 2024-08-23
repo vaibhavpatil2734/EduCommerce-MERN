@@ -8,7 +8,7 @@ import { Navbar as BootstrapNavbar } from 'react-bootstrap';
 export default function Navbar() {
   return (
     <div className='NavbarPosition'>
-      <BootstrapNavbar expand="lg" className="bg-body-tertiary">
+      <BootstrapNavbar expand="lg" className="bg-body-tertiary bg-secondary">
         <Container>
           <BootstrapNavbar.Brand><NavLink to="/" className="nav-link text-dark">Home</NavLink></BootstrapNavbar.Brand>
           <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />

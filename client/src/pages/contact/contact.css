@@ -4,12 +4,8 @@
   gap: 20px; /* Optional gap between the columns */
   height: 100vh; /* Full height of the viewport */
 }
-
-.animation-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f0f0f0; /* Optional background color */
+.mainbackground{
+  background-color: #2a3d52;
 }
 
 .form-container {
@@ -22,24 +18,3 @@
 textarea.form-control {
   resize: none;
 }
-
-.bucket {
-  width: 100px;
-  height: 100px;
-  background-color: blue;
-  position: relative;
-}
-
-.ball {
-  width: 20px;
-  height: 20px;
-  background-color: red;
-  border-radius: 50%;
-  position: absolute;
-}
-
-.ball1 { top: 10px; left: 10px; }
-.ball2 { top: 30px; left: 20px; }
-.ball3 { top: 50px; left: 30px; }
-.ball4 { top: 70px; left: 40px; }
-.ball5 { top: 90px; left: 50px; }

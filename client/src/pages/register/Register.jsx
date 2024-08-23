@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './register.css';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import BallAni from '../ball-ani/BallAni';
 
 export default function Register() {
-
   const [user, setUser] = useState({
     username: "",
     email: "",
@@ -21,35 +21,30 @@ export default function Register() {
     });
   };
 
-  const handleSubmit = async(e)=>{
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(user)
+    console.log(user);
     try {
-    const response =  fetch('http://localhost:5000/api/auth/register',{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json",
-      },
-      body:JSON.stringify(user),
-    });
-    console.log(response);
-  } catch (error) {
-      console.log("register",error);
-  }
-  }
+      const response = await fetch('http://localhost:5000/api/auth/register', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+      console.log(response);
+    } catch (error) {
+      console.log("register", error);
+    }
+  };
+
   return (
     <div className="grid-container">
       <div className="animation-container">
-        <div className="bucket">
-          <div className="ball ball1"></div>
-          <div className="ball ball2"></div>
-          <div className="ball ball3"></div>
-          <div className="ball ball4"></div>
-          <div className="ball ball5"></div>
-        </div>
+       <BallAni/>
       </div>
-      <div className="form-container">
-        <Container className="d-flex justify-content-center align-items-center vh-100">
+      <div className="form-container mainbackground">
+        <Container className="d-flex justify-content-center align-items-center vh-100 mainbackground">
           <Row className="w-100">
             <Col xs={12} md={20} lg={20} className="mx-auto">
               <h2 className="mb-5">Create an Account</h2>

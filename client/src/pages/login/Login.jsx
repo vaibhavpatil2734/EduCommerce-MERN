@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './login.css';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import BallAni from '../ball-ani/BallAni';
 
 export default function Register() {
 
@@ -38,16 +39,10 @@ export default function Register() {
   return (
     <div className="grid-container">
       <div className="animation-container">
-        <div className="bucket">
-          <div className="ball ball1"></div>
-          <div className="ball ball2"></div>
-          <div className="ball ball3"></div>
-          <div className="ball ball4"></div>
-          <div className="ball ball5"></div>
-        </div>
+        <BallAni/>
       </div>
-      <div className="form-container">
-        <Container className="d-flex justify-content-center align-items-center vh-100">
+      <div className="form-container mainbackground">
+        <Container className="d-flex justify-content-center align-items-center vh-100 mainbackground">
           <Row className="w-100">
             <Col xs={12} md={20} lg={20} className="mx-auto">
               <h2 className="mb-5">Create an Account</h2>
