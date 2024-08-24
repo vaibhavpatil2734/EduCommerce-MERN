@@ -18,9 +18,6 @@ app.use(express.json())
 app.use("/api/auth", authRouter);
 app.use("/api/form", contactRouter);
 app.use(errorMiddleware);
-// app.get("/",(req,res)=>{
-//     res.status(200).send('welcome to my project');
-// })
 
 // app.get("/register",(req,res)=>{
 //     res.status(200).send('welcome to my Register page');
