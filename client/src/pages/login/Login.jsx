@@ -4,7 +4,7 @@ import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import BallAni from '../ball-ani/BallAni';
 import { useNavigate } from 'react-router-dom';
 
-export default function Login() {
+export default function Login(props) {
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -40,7 +40,8 @@ export default function Login() {
       
       if (response.ok) {
         if (responseData && responseData.username) {
-          alert(`Login Successful! Welcome, ${responseData.username}`); // Show an alert with the username
+          alert(`Login Successful! Welcome, ${responseData.username}`);
+          props.getusername(responseData.username)
         } else {
           alert("Login Successful, but username not found in response"); // Fallback alert message
         }

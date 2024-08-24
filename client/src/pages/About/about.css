@@ -1,0 +1,40 @@
+.about-page {
+    background-color: #13293e;
+    padding: 2rem 0;
+    position:absolute;
+    top: 5%;
+  }
+.color-bg{
+    background-color: #13293e;
+}
+  .lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
+  
+  .card-title {
+    font-weight: 700;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  .about-page {
+    width: 100%;
+    padding: 0; /* Remove default padding */
+    margin: 0;  /* Remove default margin */
+  }
+  
+  .container-fluid {
+    padding: 0; /* Remove padding for the full-width container */
+    max-width: 100%; /* Ensure it takes the full width */
+  }
+  
+  .row {
+    margin: 0; /* Ensure no gaps between the rows */
+  }
+  
