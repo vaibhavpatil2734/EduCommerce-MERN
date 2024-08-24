@@ -3,8 +3,14 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Typewriter from "typewriter-effect";
 import "./home.css";
+import { useNavigate } from 'react-router-dom';
 
-export default function Home() {
+export default function Home(props) {
+  const navigate = useNavigate();
+  const handleclick=(num)=>{
+    props.getcoursenum(num)
+    navigate('/courses');
+  }
   return (
     <div className="home-container">
       <div className="typewriter-container">
@@ -30,7 +36,7 @@ export default function Home() {
                 <Card.Title>React.js</Card.Title>
                 <Card.Text>
                 A JavaScript library created by Facebook for building user interfaces, especially for single-page applications. React allows developers to create large web applications that can update and render efficiently in response to data changes                </Card.Text>
-                <Button variant="primary" className="button-dark">Go somewhere</Button>
+                <Button variant="primary" onClick={()=>{handleclick(1)}} className="button-dark">More</Button>
               </Card.Body>
             </Card>
           </div>
@@ -41,7 +47,7 @@ export default function Home() {
                 <Card.Title>Node.js</Card.Title>
                 <Card.Text>
                 A JavaScript runtime environment that allows developers to execute JavaScript code outside of a web browser, typically on the server side. Node.js is known for its event-driven, non-blocking I/O model.                </Card.Text>
-                <Button variant="primary" className="button-dark">Go somewhere</Button>
+                <Button variant="primary" onClick={()=>{handleclick(2)}} className="button-dark">More</Button>
               </Card.Body>
             </Card>
           </div>
@@ -53,7 +59,7 @@ export default function Home() {
                 <Card.Text>
                 A lightweight and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. It simplifies the process of managing HTTP requests, building APIs.
                 </Card.Text>
-                <Button variant="primary" className="button-dark">Go somewhere</Button>
+                <Button variant="primary" onClick={()=>{handleclick(3)}} className="button-dark">More</Button>
               </Card.Body>
             </Card>
           </div>
@@ -65,7 +71,7 @@ export default function Home() {
                 <Card.Text>
                 A NoSQL database that stores data in a flexible, JSON-like format, which allows for easy scaling and rapid development. Making it well-suited for applications that require fast iteration and adaptability.
                 </Card.Text>
-                <Button variant="primary" className="button-dark">Go somewhere</Button>
+                <Button variant="primary" onClick={()=>{handleclick(4)}} className="button-dark">More</Button>
               </Card.Body>
             </Card>
           </div>
