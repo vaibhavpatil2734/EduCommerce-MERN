@@ -4,7 +4,7 @@ import About from './pages/About/About';
 import Contact from './pages/contact/Contact';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
-import Service from './pages/Service';
+import Service from './pages/service/Service';
 import Courses from './pages/courses/Courses'
 import Navbar from './components/navbar/Navbar';
 import Error from './pages/error';

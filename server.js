@@ -4,6 +4,7 @@ const app = express();
 const authRouter = require("./router/auth-router");
 const contactRouter = require("./router/contact-router");
 const coursesRouter = require("./router/courses-router");
+const serviceRouter = require("./router/service-router"); // Ensure this path is correct
 const connectDb = require("./utils/db");
 const errorMiddleware = require("./middlewares/error-middleware");
 const cors = require("cors");
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use("/api/auth", authRouter);
 app.use("/api/form", contactRouter);
 app.use("/api/coursesdata", coursesRouter);
+app.use("/api/service", serviceRouter); // Uncommented this line to use the serviceRouter
 app.use(errorMiddleware);
 
 // Adding debug log
