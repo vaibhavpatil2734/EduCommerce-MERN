@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './Service.css'; // Import a CSS file for custom styling
+import './service.css'; // Import a CSS file for custom styling
 
 export default function Service() {
   const [services, setServices] = useState([]); // State to hold the services data
