@@ -21,7 +21,7 @@ app.use(express.json());
 app.use("/api/auth", authRouter);
 app.use("/api/form", contactRouter);
 app.use("/api/coursesdata", coursesRouter);
-app.use("/api/service", serviceRouter); // Uncommented this line to use the serviceRouter
+//app.use("/api/service", serviceRouter); // Uncommented this line to use the serviceRouter
 app.use(errorMiddleware);
 
 // Adding debug log

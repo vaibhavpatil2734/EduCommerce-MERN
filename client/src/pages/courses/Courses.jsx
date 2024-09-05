@@ -37,7 +37,7 @@ export default function Courses(props) {
   }
 
   return (
-    <div className="courses-page course-position">
+    <div className="course-position">
       <Container fluid>
         {/* Main Heading */}
         <Row className="my-5">

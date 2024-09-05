@@ -42,7 +42,7 @@ body {
 }
 
 .card-img-top {
-  height: 180px; /* Adjust height as needed */
+  height: 135px; /* Adjust height as needed */
   object-fit: cover;
 }
 

@@ -1,43 +1,53 @@
 /* Courses.css */
 
-.course-position{
-  position:absolute;
+.course-position {
+  position: relative;
   top: 5%;
-  height: 90%;
+  left: 0; /* Adjusted to 0 for proper centering */
+  width: 100%; /* Full width for proper centering */
+  padding: 20px;
   background-color: #2a3d52;
 }
+
 .courses-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
-    justify-content: center;
-  }
-  
-  .course-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
-    width: 250px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .course-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
-  
-  .course-name {
-    margin: 10px 0;
-    font-size: 1.2em;
-  }
-  
-  .course-description {
-    color: #555;
-  }
-  
-  .mainbackground{
-    background-color: #2a3d52;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.course-card {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  height: 100%;
+  width: 80%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  width: 80%;/* Added max-width to prevent overly wide cards on large screens */
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* Added background color for contrast */
+}
+
+.course-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.course-name {
+  margin: 10px 0;
+  font-size: 1.5em; /* Increased font size for better readability */
+  color: #333; /* Improved text color for contrast */
+}
+
+.course-description {
+  color: #555;
+}
+
+.mainbackground {
+  background-color: #2a3d52; /* Ensure this color contrasts with text */
+}
